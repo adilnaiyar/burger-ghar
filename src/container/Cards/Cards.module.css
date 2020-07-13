@@ -1,0 +1,14 @@
+
+.hr {
+    border:dotted #EAF6F6 6px;
+    border-bottom: none;
+    width: 5%;
+    margin: 10px auto;
+  }
+
+  .menu{
+    font-family: 'Montserrat-Black';
+    
+    text-align: center;
+    padding-top: 20px;
+  }

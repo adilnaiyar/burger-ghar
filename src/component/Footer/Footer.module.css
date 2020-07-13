@@ -1,0 +1,6 @@
+.hr {
+    border:dotted #EAF6F6 6px;
+    border-bottom: none;
+    width: 5%;
+    margin: 20px auto;
+  }

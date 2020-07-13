@@ -1,26 +1,75 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {Component} from 'react';
+import {Route, withRouter, Switch, Redirect} from 'react-router-dom';
+import {connect} from 'react-redux';
+
+import Layout from './container/Layout/Layout';
+import Card from './container/Cards/Cards';
+import Logout from './container/Auth/Logout/Logout';
+import * as actions from './Store/action//index';
+import asyncComponent from './Hoc/asyncComponent/asyncComponent';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const asyncContactData = asyncComponent(() => {
+  return import ('./container/ContactData/ContactData');
+});
+
+const asyncOrders = asyncComponent(() => {
+return import ('./container/Orders/Orders');
+});
+
+const asyncAuth = asyncComponent(() => {
+return import ('./container/Auth/Auth');
+});
+
+class App extends Component{
+
+  componentDidMount () {
+    this.props.onTryAutoSignup();
+  }
+
+  render(){
+
+    let routes = (
+      <Switch>
+        <Route path="/auth" component={asyncAuth} />
+        <Route path="/" exact component={Card} />
+        <Route render= {() => <h3 className = "text-center">Page! Not Found</h3>} />
+        <Redirect to="/" />
+      </Switch>
+    );
+
+    if(this.props.isAuthenticated){
+      routes = (
+            <Switch>
+              <Route path = "/contact-data" component = {asyncContactData} />
+              <Route path="/orders" component={asyncOrders} />
+              <Route path="/logout" component={Logout} />
+              <Route path="/auth" component={asyncAuth} />
+              <Route path="/" exact component={Card} />
+              <Route render= {() => <h3 className = "text-center" >Page! Not Found</h3>} />
+              <Redirect to="/" />
+            </Switch>
+      )
+    }
+
+    return(
+      <Layout>
+        {routes}
+      </Layout>
+    );
+  }
 }
 
-export default App;
+const mapStateToProps = state => {
+  return {
+    isAuthenticated: state.auth.token !== null
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    onTryAutoSignup: () => dispatch( actions.authCheckState() )
+  };
+};
+
+export default withRouter( connect( mapStateToProps, mapDispatchToProps )( App ) );

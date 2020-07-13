@@ -1,0 +1,27 @@
+export const ADD_FOOD = "ADD_FOOD";
+export const REMOVE_FOOD = "REMOVE_FOOD";
+
+export const SET_FOOD = "SET_FOOD";
+export const FETCH_FOOD_FAIL = "FETCH_FOOD_FAIL";
+
+export const PURCHASE_BURGER_START = ' PURCHASE_BURGER_START';
+export const PURCHASE_BURGER_SUCCESS = 'PURCHASE_BURGER_SUCCESS';
+export const PURCHASE_BURGER_FAIL = 'PURCHASE_BURGER_FAIL';
+export const PURCHASE_INIT = 'PURCHASE_INIT';
+
+export const FETCH_ORDERS_START = "FETCH_ORDERS_START";
+export const FETCH_ORDERS_SUCCESS = "FETCH_ORDERS_SUCCESS";
+export const FETCH_ORDERS_FAIL = "FETCH_ORDERS_FAIL";
+
+export const Auth_START = "AUTH_START";
+export const Auth_SUCCESS = "AUTH_SUCCESS";
+export const Auth_FAIL = "AUTH_FAIL";
+export const AUTH_LOGOUT = "AUTH_LOGOUT";
+
+export const SET_AUTH_REDIRECT_PATH = "SET_AUTH_REDIRECT_PATH";
+
+export const DELETE_Food_START = "DELETE_Food_START";
+export const DELETE_Food_SUCCESS = "DELETE_Food_SUCCESS";
+export const DELETE_Food_FAIL = "DELETE_Food_FAIL";
+
+export const COMPLETE_ORDER = "COMPLETE_ORDER";

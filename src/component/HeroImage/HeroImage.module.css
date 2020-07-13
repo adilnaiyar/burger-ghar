@@ -1,0 +1,49 @@
+
+.Banner{
+  background-color: #625cd8;
+  padding: 7% 10%;
+}
+ 
+  .bigHeading{
+    font-family: 'Montserrat-Black';
+    color:#fff;
+    font-size: 2.5rem;
+    line-height: 1;
+    padding-top: 10%;
+    text-align: center;
+  }
+
+  .smallHeading{
+    font-family: 'Montserrat-Black';
+    color:rgb(206, 217, 219);
+    font-size: 2.0rem;
+    line-height: 1;
+    text-align: center;
+  }
+
+
+  .titleImage{
+    padding-top: 4px;
+    height: 300px;
+  }
+  
+  @media (max-width: 600px) {
+    .Banner{
+      background-color: #625cd8;
+      padding: 20% 2%;
+    }
+
+    .bigHeading{
+      padding-top: 15%;
+    }
+
+    .smallHeading{
+      padding: 5%;
+    }
+    .titleImage{
+      padding-left: 60px;
+      height: 200px;
+      align-items: center;
+    }
+
+}
